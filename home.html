@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <style>
+              .textbox-container {
+                  width: 800px;
+                  margin: 0 auto;
+                  padding: 20px;
+                  border-radius: 15px;
+                  display: flex;
+              }
+
+              .title {
+                  font-size: 24px; /* Larger font size for the title */
+                  font-weight: bold;
+                  flex: 1; /* Make the title and description take equal width */
+                  margin-right: 5px; /* Add spacing between title and description */
+                  margin-top: 30px;
+                  margin-left: 15px;
+              }
+
+              .description {
+                  font-size: 15px;
+                  line-height: 1.5;
+                  flex: 5; /* Make the title and description take equal width */
+              }
+              #trigger-textbox1 {
+
+      background-color: #CFE2FF}
+              #rules-textbox1 {
+              background-color: #EEDAFF}
+
+
+              #feedbacks-textbox1 {
+
+      background-color: #FFD7EA}
+
+              }
+               #loops-textbox1 {
+
+      background-color: #FFDCDC}
+              }
+    </style>
+  </head>
+  <body>
+    <div class="textbox-container" id="trigger-textbox1">
+      <div class="title">Triggers</div>
+      <div class="description">
+        <b> User Interaction </b>: When the user clicks on navigation arrows or
+        dots, it starts the animation to move to the next or previous slide.
+        Additionally, hovering over the carousel may trigger elements like
+        pause/play buttons or slide previews. <br />
+        <b> Automatic Timer </b>: Another trigger is an automatic timer. If the
+        user doesn't interact with the carousel, it automatically progresses to
+        the next slide after a predefined time interval, typically seen in
+        auto-playing carousels.
+      </div>
+    </div>
+    <br />
+
+    <div class="textbox-container" id="rules-textbox1">
+      <div class="title">Rules</div>
+      <div class="description">
+        <b> Slide Transitions </b>: How the slides transition from one to
+        another: sliding from left to right, and fading in and out.
+        <b>
+          <br />
+          Navigation Controls</b
+        >: Clicking the right arrow should move to the next slide, and clicking
+        the left arrow should go to the previous slide. Clicking on a navigation
+        dot should take the user directly to the corresponding slide.
+      </div>
+    </div>
+    <br />
+
+    <div class="textbox-container" id="feedbacks-textbox1">
+      <div class="title">Feedbacks</div>
+      <div class="description">
+        <b> Visual Feedback </b>: Provide visual feedback to the user during
+        interaction. Highlight the currently active slide, change the appearance
+        of navigation dots to indicate the current slide, and possibly use
+        animations or transitions to make these changes more engaging
+        <b>
+          <br />
+          User-Controlled Feedback:</b
+        >
+        include pause/play buttons so users can control the automatic timer.
+        When they interact with navigation elements, provide visual cues like
+        button depressions or hover effects to acknowledge their actions.
+      </div>
+    </div>
+    <br />
+
+    <div class="textbox-container" id="loops-textbox1">
+      <div class="title">Loops Modes</div>
+      <div class="description">
+        <b> Infinite Loop </b>: If the user reaches the last slide, it loops
+        back to the first slide.
+      </div>
+    </div>
+  </body>
+</html>
