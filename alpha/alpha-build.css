@@ -19,6 +19,7 @@
 }
 .image-container img:hover {
   transform: scale(1.2); /* Scale up by 10% on hover */
+  cursor: pointer;
 }
 
 h1 {
