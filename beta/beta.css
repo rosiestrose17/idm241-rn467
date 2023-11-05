@@ -1,0 +1,115 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+h1 {
+  text-align: center;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.1cm;
+  text-shadow: 5px 2px 0 pink;
+}
+h2 {
+  text-align: center;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+h3 {
+  text-align: center;
+  font-style: italic;
+  text-decoration: underline;
+  font-weight: 100;
+  font-size: 2rem;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+h4 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  color: rgb(203, 33, 61);
+}
+
+.caption {
+  text-align: center;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.textbox-container {
+  width: 100%;
+  max-width: 75%;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+#trigger-textbox1 {
+  background-color: #cfe2ff;
+}
+
+#rules-textbox1 {
+  background-color: #eedaff;
+}
+
+#feedbacks-textbox1 {
+  background-color: #ffd7ea;
+}
+
+#loops-textbox1 {
+  background-color: #ffdcdc;
+}
+
+.img-container {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column {
+  padding: 5px; /* Add some spacing between images */
+}
+
+.column img {
+  max-width: 100%; /* Ensure the image fits within its container */
+}
+
+figcaption {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .column {
+    width: 100%; /* Ensure each image takes 100% width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: center;
+    padding: 5px; /* Add some spacing between images */
+  }
+}
