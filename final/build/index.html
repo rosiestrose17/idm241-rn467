@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .function {
+        position: relative;
+        width: 100%;
+      }
+
+      .background-container {
+        width: 50%;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      .background {
+        width: 400%; /* Adjust based on the number of images */
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        overflow-x: hidden;
+      }
+
+      .background img {
+        width: 25%; /* Adjust based on the number of images */
+        flex: 0 0 auto;
+      }
+
+      .image-container {
+        width: 100%;
+        height: 320px;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        padding-right: 5%;
+      }
+
+      .image-container img {
+        transition: transform 0.5s ease-in-out;
+
+        overflow: hidden;
+      }
+
+      .nav-buttons {
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+      }
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="function">
+      <div class="background-container">
+        <div class="background">
+          <img src="img/23.png" alt="Background 1" />
+          <img src="img/26.png" alt="Background 2" />
+          <img src="img/25.png" alt="Background 3" />
+          <img src="img/24.png" alt="Background 4" />
+        </div>
+      </div>
+      <div class="image-container" id="image-container">
+        <img src="img/bona.png" alt="Your Image" id="image" />
+        <div class="nav-buttons">
+          <button onclick="previousImage()">Previous</button>
+          <button onclick="nextImage()">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const backgroundContainer = document.querySelector(".background");
+      const image = document.getElementById("image");
+      let backgroundIndex = 0;
+      const totalImages = 4; // Adjust based on the number of images
+
+      function updateBackground() {
+        backgroundContainer.style.transform = `translateX(${
+          -backgroundIndex * 25
+        }%)`;
+      }
+
+      function updateTransform() {
+        image.style.transform = `rotate(${
+          backgroundIndex * (360 / totalImages)
+        }deg)`;
+      }
+
+      function previousImage() {
+        backgroundIndex = (backgroundIndex - 1 + totalImages) % totalImages;
+        updateBackground();
+        updateTransform();
+      }
+
+      function nextImage() {
+        backgroundIndex = (backgroundIndex + 1) % totalImages;
+        updateBackground();
+        updateTransform();
+      }
+    </script>
+  </body>
+</html>
