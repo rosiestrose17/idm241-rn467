@@ -3,64 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      .function {
-        position: relative;
-        width: 100%;
-      }
-
-      .background-container {
-        width: 50%;
-        overflow-x: hidden;
-        position: relative;
-      }
-
-      .background {
-        width: 400%; /* Adjust based on the number of images */
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        overflow-x: hidden;
-      }
-
-      .background img {
-        width: 25%; /* Adjust based on the number of images */
-        flex: 0 0 auto;
-      }
-
-      .image-container {
-        width: 100%;
-        height: 320px;
-        overflow: hidden;
-        position: absolute;
-        bottom: 0;
-        padding-right: 5%;
-      }
-
-      .image-container img {
-        transition: transform 0.5s ease-in-out;
-
-        overflow: hidden;
-      }
-
-      .nav-buttons {
-        position: absolute;
-        top: 50%;
-        width: 40%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-      }
-
-      button {
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>RN467 - Final Build</title>
   </head>
-  <body>
+
+  <body onload="currentSlide(0)">
+    <header>
+      <h1 class="header">RN467 - IDM 241 - FINAL BUILD</h1>
+    </header>
     <div class="function">
       <div class="background-container">
         <div class="background">
@@ -69,45 +20,220 @@
           <img src="img/25.png" alt="Background 3" />
           <img src="img/24.png" alt="Background 4" />
         </div>
-      </div>
-      <div class="image-container" id="image-container">
-        <img src="img/bona.png" alt="Your Image" id="image" />
+
+        <div class="slide-counter" id="slide-counter"></div>
+        <div class="content-wrapper">
+          <div class="text1">BEST SELLER</div>
+          <div class="fruit">
+            <div class="indicator-wrapper">
+              <img
+                class="dot"
+                src="img/strawberry.png"
+                alt="Strawberry Button"
+                onclick="currentSlide(0)"
+                style="cursor: pointer"
+              />
+              <div
+                class="indicatorLine"
+                id="indicatorLine-0"
+                style="width: 3.5rem; height: 2px; background-color: white"
+              ></div>
+            </div>
+            <div class="indicator-wrapper">
+              <img
+                class="dot"
+                src="img/taro.png"
+                alt="Taro Button"
+                onclick="currentSlide(1)"
+                style="cursor: pointer"
+              />
+              <div
+                class="indicatorLine"
+                id="indicatorLine-1"
+                style="width: 3.5rem; height: 2px; background-color: white"
+              ></div>
+            </div>
+            <div class="indicator-wrapper">
+              <img
+                class="dot"
+                src="img/mango.png"
+                alt="Mango Button"
+                onclick="currentSlide(2)"
+                style="cursor: pointer"
+              />
+              <div
+                class="indicatorLine"
+                id="indicatorLine-2"
+                style="width: 3.5rem; height: 2px; background-color: white"
+              ></div>
+            </div>
+            <div class="indicator-wrapper">
+              <img
+                class="dot"
+                src="img/apple.png"
+                alt="Apple Button"
+                onclick="currentSlide(3)"
+                style="cursor: pointer"
+              />
+              <div
+                class="indicatorLine"
+                id="indicatorLine-3"
+                style="width: 3.5rem; height: 2px; background-color: white"
+              ></div>
+            </div>
+          </div>
+
+          <div class="text" id="image-text">
+            <div class="drink-name color-1" id="drink-name">STRAWBERRY</div>
+            <div class="drink-description" id="drink-description">
+              Cool down with our freshly made strawberry sparkling refresher.
+              The mixture of the house made puree which is made from organic
+              strawberries hand picked from one of the top quality strawberry
+              farms in the US.
+            </div>
+          </div>
+        </div>
+
         <div class="nav-buttons">
-          <button onclick="previousImage()">Previous</button>
-          <button onclick="nextImage()">Next</button>
+          <button class="prev" onclick="previousImage(-1)">❮</button>
+          <button class="next" onclick="nextImage(1)">❯</button>
+        </div>
+
+        <div class="image-container" id="image-container">
+          <img src="img/bona.png" alt="Your Image" id="image" />
         </div>
       </div>
     </div>
+    <br />
+    <section id="texts">
+      <div class="container">
+        <div class="textbox-container" id="trigger-textbox1">
+          <div class="title">Triggers</div>
+          <div class="desc">
+            <b>On/Off Hover:</b> User hovers on and off the next/previous button
+            <br />
+            <b>On/Off Hover:</b> User hovers on and off a fruit button.
+            <br />
+            <b> On Click: </b> User clicks the "Previous" or "Next" buttons or
+            clicks on a fruit button.
+            <br />
+            <b>Timer: </b> After 4 seconds of no interaction, the carousel
+            automatic display next drink.
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="textbox-container" id="rules-textbox1">
+          <div class="title">Rules</div>
+          <div class="desc">
+            <b>Hover on Previous/Next Button</b>: When the user's mouse hovers
+            on the next or previous button, the cursor change from default arrow
+            to pointer and the button is filled from transparent to white in .3
+            seconds.
+            <br />
+            <b>Hover off Previous/Next Button</b>: When the user's mouse hovers
+            off the next or previous button, the cursor change from pointer to
+            default arrow and the button fades from white to transparent in .3
+            seconds. <br /><b>Hover on Fruit button</b>: When the user's mouse
+            hovers any fruit button, the cursor change from default arrow to
+            pointer and the button scales up about 20% over time.
+            <br />
+            <b>Hover off Fruit button</b>: When the user's mouse hovers off the
+            fruit button, the cursor change from pointer to default arrow and
+            the the button returns to its original size over time.
+            <br />
+            <b> Clicks On Previous Button</b>: When the user clicks on the
+            "Previous" button, it will shift the carousel to display a line
+            under the fruit, the current drink rotates 90 degrees
+            counterclockwise to the previous drink, and the background of the
+            previous drink slides from left to right.
+            <br />
+            <b>Clicks On Next Button</b>: When the user clicks on the "Next"
+            button, it will shift the carousel to display a line under the
+            fruit, the current drink rotates 90 degrees clockwise to the next
+            drink, and the background of the next drink slides from right to
+            left.
+            <br />
+            <b>Clicks On Fruit button</b>: When the user clicks on a fruit
+            button directly, a line shows up under the fruit and the drink and
+            background will change to match the selected fruit. <br />
+            <b>Automatic Timer:</b> If no interaction occurs for 4 seconds,
+            automatically switch to the next slide.
+          </div>
+        </div>
+      </div>
 
-    <script>
-      const backgroundContainer = document.querySelector(".background");
-      const image = document.getElementById("image");
-      let backgroundIndex = 0;
-      const totalImages = 4; // Adjust based on the number of images
+      <div class="container">
+        <div class="textbox-container" id="feedbacks-textbox1">
+          <div class="title">Feedbacks</div>
+          <div class="desc">
+            <b>Hover on Previous/Next Button</b>: When the user's mouse hovers
+            over the next or previous button, the cursor change from default
+            arrow to pointer and the button is filled from transparent to white
+            in .3 seconds.
+            <br />
+            <b>Hover off Previous/Next Button</b>: When the user's mouse hovers
+            off the next or previous button, the cursor change from pointer to
+            default arrow and the button fades from white to transparent in .3
+            seconds. <br /><b>Hover on Fruit button</b>: When the user's mouse
+            hovers any fruit button, the cursor change from default arrow to
+            pointer and the button scales up about 20% over time.
+            <br />
+            <b>Hover off Fruit button</b>: When the user's mouse hovers off the
+            fruit button, the cursor change from pointer to default arrow and
+            the the button returns to its original size over time. <br /><b
+              >Clicks On Previous Button</b
+            >: When the user clicks on the "Previous" button, it will shift the
+            carousel to display a line under the fruit, the current drink
+            rotates 90 degrees counterclockwise to the previous drink, and the
+            background of the previous drink slides from left to right.
+            <br />
+            <b>Clicks On Next Button</b>: When the user clicks on the "Next"
+            button, it will shift the carousel to display a line under the
+            fruit, the current drink rotates 90 degrees clockwise to the next
+            drink, and the background of the next drink slides from right to
+            left.
+            <br />
+            <b>Clicks On Fruit button</b>: When the user clicks on a fruit
+            button directly, a line shows up under the fruit and the drink and
+            background will change to match the selected fruit. <br />
+            <b>Automatic Timer:</b> If no interaction occurs for 4 seconds,
+            automatically switch to the next slide.
+          </div>
+        </div>
+      </div>
 
-      function updateBackground() {
-        backgroundContainer.style.transform = `translateX(${
-          -backgroundIndex * 25
-        }%)`;
-      }
-
-      function updateTransform() {
-        image.style.transform = `rotate(${
-          backgroundIndex * (360 / totalImages)
-        }deg)`;
-      }
-
-      function previousImage() {
-        backgroundIndex = (backgroundIndex - 1 + totalImages) % totalImages;
-        updateBackground();
-        updateTransform();
-      }
-
-      function nextImage() {
-        backgroundIndex = (backgroundIndex + 1) % totalImages;
-        updateBackground();
-        updateTransform();
-      }
-    </script>
+      <div class="container">
+        <div class="textbox-container" id="loops-textbox1">
+          <div class="title">Loops & Modes</div>
+          <div class="desc">
+            <b> Loops </b>: The carousel loops from the last to the first drink
+            and vice versa infinitely. Looping occurs when the user reaches the
+            last drink and clicks "Next" or at the first drink and clicks
+            "Previous."
+            <br />
+            <b> Modes </b>: There are three modes in this interaction:
+            sequential mode, direct selection mode, and automatic timer mode.
+            Users can navigate through the carousel sequentially using the
+            "Previous" and "Next" buttons, which allows them to manually switch
+            between drinks at their own pace, controlling the flow of the
+            carousel. Users also have the option to select a specific drink by
+            clicking on a corresponding fruit button. This immediate change
+            provides a direct and non-sequential way for users to jump to their
+            preferred drink without cycling through all the intermediate
+            options. For a hands-free experience, users can activate an
+            automatic timer that changes slides after 4 seconds of inactivity.
+            In this mode, the carousel operates autonomously, cycling through
+            drinks at a predefined interval.
+          </div>
+        </div>
+      </div>
+    </section>
+    <h3>
+      <a href="https://bobakingusa.com/#best-seller" target="_blank"
+        >Original Microinteraction</a
+      >
+      <br />
+    </h3>
   </body>
 </html>
